@@ -203,7 +203,7 @@ def detecttext(image):
 
 
 def main():
-    #time.sleep() is used to counter Azure's limitation of 20 calls API per minute, The time.sleep() functions below limit it to only 15 API calls per minute.    
+    #time.sleep() is used to counter Azure's limitation of 20 API calls per minute, The time.sleep() functions below limits it to only 15 API calls per minute.    
     full_list=[]
     for photos in os.listdir():
         description=getimagedescription(photos)
@@ -235,10 +235,6 @@ def main():
             
 if __name__ == "__main__":
     main()           
-
-
-# In[ ]:
-
 
 
 
