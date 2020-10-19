@@ -19,7 +19,6 @@ os.chdir("C:\Project Work\Mayank_Data\GCP Test")
 
 
 # In[5]:
-
 def getimagedescription(image):
     image = open(image,"rb")
     description_result = computervision_client.describe_image_in_stream(image)
@@ -76,7 +75,6 @@ def detectfaces(image):
 def detectadultcontent(image):
     image = open(image, "rb")
     # Select visual features you want
-    #local_image_features = ["adult"]
     # Call API with local image and features
     detect_adult_results_local = computervision_client.analyze_image_in_stream(image, ["adult"])
 
@@ -205,13 +203,7 @@ def detecttext(image):
 
 
 def main():
-    image='1-Pronamel_StrongBright_300x250_110609966.jpg'
-    image2= '1908_GSK_Theraflu_US_ODA_JPG_Ada_ES_160x600.jpg'
-    image3='Tennis.jpg'
-    image4='pepsi1.jpg'
-    #objects=detectobjects(image4)
-    #print(objects)
-    
+    #time.sleep() is used to counter Azure's limitation of 20 calls API per minute, The time.sleep() functions below limit it to only 15 API calls per minute.    
     full_list=[]
     for photos in os.listdir():
         description=getimagedescription(photos)
